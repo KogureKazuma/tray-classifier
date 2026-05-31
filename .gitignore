@@ -1,7 +1,4 @@
-# データ・モデル
-data/
-checkpoints/
-*.pth
+# Colab アップロード用 ZIP（data/ と重複するため除外）
 *.zip
 
 # Python
