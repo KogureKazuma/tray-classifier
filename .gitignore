@@ -1,0 +1,19 @@
+# データ・モデル
+data/
+checkpoints/
+*.pth
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
