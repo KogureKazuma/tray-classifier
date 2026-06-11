@@ -2,6 +2,7 @@
 *.zip
 
 # multitask: 実データ・学習結果が揃うまでは未追跡
+multitask/raw_data/
 multitask/data/
 multitask/checkpoints/
 
