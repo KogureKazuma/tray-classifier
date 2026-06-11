@@ -139,9 +139,16 @@ def main():
     val_ds = MultiTaskTrayDataset(os.path.join(args.data_dir, "val"), val_tf,
                                    tray_type_names=train_ds.tray_type_names)
 
+    train_batch_size = min(args.batch_size, len(train_ds))
+    # BatchNorm はバッチサイズ1だと学習時にエラーになるため、
+    # 余りがちょうど1枚になる場合のみ最終バッチを捨てる
+    drop_last = train_batch_size > 1 and len(train_ds) % train_batch_size == 1
+
     dataloaders = {
-        "train": DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, num_workers=0),
-        "val": DataLoader(val_ds, batch_size=args.batch_size, shuffle=False, num_workers=0),
+        "train": DataLoader(train_ds, batch_size=train_batch_size, shuffle=True,
+                             num_workers=0, drop_last=drop_last),
+        "val": DataLoader(val_ds, batch_size=min(args.batch_size, len(val_ds)),
+                           shuffle=False, num_workers=0),
     }
 
     print(f"トレー種類({len(train_ds.tray_type_names)}): {train_ds.tray_type_names}")
