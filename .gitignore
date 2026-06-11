@@ -1,6 +1,10 @@
 # Colab アップロード用 ZIP（data/ と重複するため除外）
 *.zip
 
+# multitask: 実データ・学習結果が揃うまでは未追跡
+multitask/data/
+multitask/checkpoints/
+
 # Python
 __pycache__/
 *.py[cod]
