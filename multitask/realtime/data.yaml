@@ -1,0 +1,19 @@
+# トレー検出モデル (YOLO) 用データセット設定
+#
+# データ構造 (YOLO形式):
+#   data/
+#   ├── images/
+#   │   ├── train/*.jpg
+#   │   └── val/*.jpg
+#   └── labels/
+#       ├── train/*.txt   (各行: class x_center y_center width height, 0-1正規化)
+#       └── val/*.txt
+#
+# generate_dummy_data.py で動作確認用のダミーデータを生成できます
+
+path: ./data
+train: images/train
+val: images/val
+
+names:
+  0: tray

@@ -6,6 +6,12 @@ multitask/raw_data/
 multitask/data/
 multitask/checkpoints/
 
+# realtime: YOLO学習データ・学習結果（容量が大きいため未追跡）
+multitask/realtime/data/
+multitask/realtime/runs/
+multitask/realtime/*.pt
+multitask/realtime/result.*
+
 # Python
 __pycache__/
 *.py[cod]
